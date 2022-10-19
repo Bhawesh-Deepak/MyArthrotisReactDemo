@@ -1,0 +1,16 @@
+export const apibaseUrl="http://localhost:28371/";
+export const apiContactUsList="api/ContactUs/GetContactUsList";
+export const ReferralListApi="api/User/GetReferral";
+export const ProgramTypeListApi="api/ProgramTypeMaster/GetProgramTypeList";
+export const ProgramListApi="api/ProgramMaster/GetProgramList";
+export const CoachListApi="api/Coach/GetCoachListing";
+export const createGroupApi='api/Group/UpsertGroup';
+export const roleListApi='api/RoleMaster/GetRoleList';
+export const createCoachApi="api/Coach/UpsertCoach";
+export const resourceListApi='api/Document/GetDocumentList?coachId=2';
+export const deleteResourceApi='api/Document/DeleteDocument?id='
+export const upsertResourceApi='api/Document/UpsertDocument';
+export const getResourceById='api/Document/GetDocumentById?id=';
+export const getUserListDetailsApi='api/User/GetUserList';
+export const downloadUserListExcel='api/User/DownloadUserExcel';
+export const getCategoryListApi='api/CategoryMaster/GetCategoryList';
