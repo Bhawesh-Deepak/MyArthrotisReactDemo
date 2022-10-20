@@ -13,6 +13,7 @@ export default function Referral() {
   const [totalCount, setTotalCount]= useState(10);
 
   const Paging=(page, pagesize)=>{
+    debugger
     setPageSizeValue(pagesize);
     setPageValue(page);
   }
@@ -52,7 +53,7 @@ export default function Referral() {
 
   useEffect(()=>{
     GetReferralDetails();
-  },[pageValue])
+  },[pageValue,pageSizeValue])
 
   const GetReferralDetails=()=>{
     axios.post(apibaseUrl+ReferralListApi,
@@ -112,28 +113,6 @@ export default function Referral() {
           </div>
 
       <div className="col-md-12">
-            {/* <table className="table table-bordered">
-              <thead>
-                <tr>
-                  <th>S.No</th>
-                  <th>Email</th>
-                  <th>Referral Email</th>
-                  <th>Created On</th>
-                </tr>
-              </thead>
-              <tbody>
-                {referralList.map((data, index) => (
-                  <tr>
-                    <td>{index}</td>
-                    <td>{data.referrByEmail}</td>
-                    <td>{data.referrToEmail}</td>
-                    <td>{data.createdDate.split('T')[0]}</td>
-                   
-                  </tr>
-                ))}
-              </tbody>
-            </table> */}
-
             <Table 
             columns={columns} 
             dataSource={referralList}

@@ -14,3 +14,8 @@ export const getResourceById='api/Document/GetDocumentById?id=';
 export const getUserListDetailsApi='api/User/GetUserList';
 export const downloadUserListExcel='api/User/DownloadUserExcel';
 export const getCategoryListApi='api/CategoryMaster/GetCategoryList';
+export const getUserListingdetailsApi='api/User/GetUserListing';
+export const deleteCategoryApi='api/CategoryMaster/DeleteCategory?id=';
+export const InsertCategoryApi='api/CategoryMaster/InsertCategory';
+export const GetCategoryByIdApi='api/CategoryMaster/GetCategoryById?id=';
+export const UpdateCategoryApi='api/CategoryMaster/UpdateCategory';

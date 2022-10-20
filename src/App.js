@@ -19,6 +19,9 @@ import Resource from "./Components/SuperAdmin/Resource";
 import AddGroup from "./Components/SuperAdmin/AddGroup";
 import CoachInsert from "./Components/SuperAdmin/CoachInsert";
 import AddRescource from "./Components/SuperAdmin/AddRescource";
+import Category from "./Components/Master/Category";
+import UpsertCategory from "./Components/Master/UpsertCategory";
+import Utilities from "./Components/Master/Utilities";
 
 
 function App() {
@@ -37,11 +40,10 @@ function App() {
     <div className="App">
       <div className={isToggle}>
         <main className="page-content bg-light">
-        
+          <Router>
           <Header OnToggle={OnToggle} />
           <br />
           <br />
-          <Router>
             <Navbar />
             <Routes>
               <Route exact path="/" element={<Dashboard />}></Route>
@@ -59,6 +61,9 @@ function App() {
               <Route exact path="/AddGroup" element={<AddGroup/>}></Route>
               <Route exact path="/CreateCoach" element={<CoachInsert/>}></Route>
               <Route exact path="/AddResource" element={<AddRescource/>}></Route>
+              <Route exact path="/Category" element={<Category/>}></Route>
+              <Route exact path="/UpsertCategpry" element={<UpsertCategory/>}></Route>
+              <Route exact path="/Master" element={<Utilities/>}></Route>
             </Routes>
           </Router>
         </main>

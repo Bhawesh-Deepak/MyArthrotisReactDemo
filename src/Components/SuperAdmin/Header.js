@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 export default function Header(props) {
   return (
@@ -17,7 +18,7 @@ export default function Header(props) {
             </a>
             <div className="search-bar p-0 d-none d-md-block ms-2">
                 <div id="search" className="menu-search mb-0">
-
+                    <Link to='/Master' className='list-unstyled mb-0'>Utilities</Link>
                 </div>
             </div>
         </div>

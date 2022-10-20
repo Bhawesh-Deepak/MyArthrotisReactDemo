@@ -37,7 +37,8 @@ export default function AddGroup() {
     coachId: Yup.string().required("Coach is required"),
     groupName: Yup.string().required("Group name is required"),
     startDate: Yup.date().required("Start Date is required !"),
-    endDate: Yup.date().required("End Date is required !").min(Yup.ref('startDate'),"End date can not before start date !"),
+    endDate: Yup.date().required("End Date is required !")
+      .min(Yup.ref('startDate'),"End date can not before start date !"),
   });
 
   useEffect(() => {
