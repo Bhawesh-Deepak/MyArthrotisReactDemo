@@ -19,3 +19,5 @@ export const deleteCategoryApi='api/CategoryMaster/DeleteCategory?id=';
 export const InsertCategoryApi='api/CategoryMaster/InsertCategory';
 export const GetCategoryByIdApi='api/CategoryMaster/GetCategoryById?id=';
 export const UpdateCategoryApi='api/CategoryMaster/UpdateCategory';
+export const GetMasterMenuLinkApi='api/MenuSubMenu/GetMasterMenuLink';
+export const GetCountryListApi='api/CountryMaster/GetCountryList';

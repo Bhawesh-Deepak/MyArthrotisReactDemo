@@ -22,6 +22,7 @@ import AddRescource from "./Components/SuperAdmin/AddRescource";
 import Category from "./Components/Master/Category";
 import UpsertCategory from "./Components/Master/UpsertCategory";
 import Utilities from "./Components/Master/Utilities";
+import Country from "./Components/Master/Country";
 
 
 function App() {
@@ -63,7 +64,10 @@ function App() {
               <Route exact path="/AddResource" element={<AddRescource/>}></Route>
               <Route exact path="/Category" element={<Category/>}></Route>
               <Route exact path="/UpsertCategpry" element={<UpsertCategory/>}></Route>
-              <Route exact path="/Master" element={<Utilities/>}></Route>
+              <Route exact path="/Master" element={<Utilities/>}>
+                <Route path='Category' element={<Category/>}></Route>
+                <Route path='Country' element={<Country/>}></Route>
+              </Route>
             </Routes>
           </Router>
         </main>
