@@ -2,11 +2,11 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Table } from "antd";
 import "antd/dist/antd.css";
-import { apibaseUrl, deleteCategoryApi, getCategoryListApi } from "../../Helpers/ApiUrlHelper";
+import { apibaseUrl, deleteInquireApi, getInquireListApi } from "../../Helpers/ApiUrlHelper";
 import { Link } from "react-router-dom";
 
-export default function Category() {
-  const [categoryList, setCategoryList] = useState([]);
+export default function Inquire() {
+  const [inquireList, setInquireList] = useState([]);
  const [searchText,setSearchText] =useState('');
   const Columns = [
     {
@@ -60,25 +60,25 @@ export default function Category() {
     {
       title: "Action",
       render:(record)=> (<><button type="button" onClick={()=> DeleteRecord(record)}>Delete</button>
-        <Link to={`/UpsertCategory?id=${record.id}`}>Edit</Link></>)
+        <Link to={`/UpsertInquire?id=${record.id}`}>Edit</Link></>)
     },
   ];
 
    const  DeleteRecord=(record)=>{
       if(window.confirm(`Are you sure want to delete ${record.name} ?`)){
-        axios.get(apibaseUrl+deleteCategoryApi+ record.id).then(resp=>{
+        axios.get(apibaseUrl+deleteInquireApi+ record.id).then(resp=>{
           alert(resp.data.message);
-          GetCategoryList();
+          GetInquireList();
         })
       }
    }
   useEffect(()=>{
-        GetCategoryList();
+        GetInquireList();
   },[])
 
-  const GetCategoryList = () => {
-    axios.get(apibaseUrl + getCategoryListApi).then((resp) => {
-        setCategoryList(resp.data.response);
+  const GetInquireList = () => {
+    axios.get(apibaseUrl + getInquireListApi).then((resp) => {
+        setInquireList(resp.data.response);
     });
   };
 
@@ -97,7 +97,7 @@ export default function Category() {
           </div>
           <div className="col-md-6">
           <div className="col-md-3">
-              <Link to='/UpsertCategory' className="btn btn-success">Add </Link>
+              <Link to='/UpsertInquire' className="btn btn-success">Add </Link>
             </div>
           </div>
         </div>
@@ -105,7 +105,7 @@ export default function Category() {
           <div className="col-md-12">
             <Table
               columns={Columns}
-              dataSource={categoryList}
+              dataSource={inquireList}
             ></Table>
           </div>
         </div>

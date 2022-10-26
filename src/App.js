@@ -20,7 +20,17 @@ import AddGroup from "./Components/SuperAdmin/AddGroup";
 import CoachInsert from "./Components/SuperAdmin/CoachInsert";
 import AddRescource from "./Components/SuperAdmin/AddRescource";
 import Category from "./Components/Master/Category";
+import Gender from "./Components/Master/Gender";
+import Inquire from "./Components/Master/Inquire";
+import Program from "./Components/Master/Program";
+import ProgramType from "./Components/Master/ProgramType";
+import RiskOfProgression from "./Components/Master/RiskOfProgression";
 import UpsertCategory from "./Components/Master/UpsertCategory";
+import UpsertGender from "./Components/Master/UpsertGender";
+import UpsertInquire from "./Components/Master/UpsertInquire";
+import UpsertProgram from "./Components/Master/UpsertProgram";
+import UpsertProgramType from "./Components/Master/UpsertProgramType";
+import UpsertRiskOfProgression from "./Components/Master/UpsertRiskOfProgression";
 import Utilities from "./Components/Master/Utilities";
 import Country from "./Components/Master/Country";
 
@@ -63,10 +73,25 @@ function App() {
               <Route exact path="/CreateCoach" element={<CoachInsert/>}></Route>
               <Route exact path="/AddResource" element={<AddRescource/>}></Route>
               <Route exact path="/Category" element={<Category/>}></Route>
+              <Route exact path="/Gender" element={<Gender />}></Route>
+              <Route exact path="/Inquire" element={<Inquire />}></Route>
+              <Route exact path="/Program" element={<Program />}></Route>
+              <Route exact path="/ProgramType" element={<ProgramType />}></Route>
+              <Route exact path="/RiskOfProgression" element={<RiskOfProgression />}></Route>
               <Route exact path="/UpsertCategpry" element={<UpsertCategory/>}></Route>
+              <Route exact path="/UpsertGender" element={<UpsertGender/>}></Route>
+              <Route exact path="/UpsertInquire" element={<UpsertInquire/>}></Route>
+              <Route exact path="/UpsertProgram" element={<UpsertProgram/>}></Route>
+              <Route exact path="/UpsertProgramType" element={<UpsertProgramType/>}></Route>
+              <Route exact path="/UpsertRiskOfProgression" element={<UpsertRiskOfProgression/>}></Route>
               <Route exact path="/Master" element={<Utilities/>}>
-                <Route path='Category' element={<Category/>}></Route>
-                <Route path='Country' element={<Country/>}></Route>
+              <Route path='Category' element={<Category/>}></Route>
+              <Route path='Gender' element={<Gender/>}></Route>
+              <Route path='Inquire' element={<Inquire/>}></Route>
+              <Route path='Program' element={<Program/>}></Route>
+              <Route path='ProgramType' element={<ProgramType/>}></Route>
+              <Route path='RiskOfProgression' element={<RiskOfProgression/>}></Route>
+              <Route path='Country' element={<Country/>}></Route>
               </Route>
             </Routes>
           </Router>
