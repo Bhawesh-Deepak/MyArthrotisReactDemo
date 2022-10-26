@@ -2,11 +2,11 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Table } from "antd";
 import "antd/dist/antd.css";
-import { apibaseUrl, deleteCategoryApi, getCategoryListApi } from "../../Helpers/ApiUrlHelper";
+import { apibaseUrl, deleteRiskOfProgressionApi, getRiskOfProgressionListApi } from "../../Helpers/ApiUrlHelper";
 import { Link } from "react-router-dom";
 
-export default function Category() {
-  const [categoryList, setCategoryList] = useState([]);
+export default function RiskOfProgression() {
+  const [riskOfProgressionList, setRiskOfProgressionList] = useState([]);
  const [searchText,setSearchText] =useState('');
   const Columns = [
     {
@@ -60,25 +60,25 @@ export default function Category() {
     {
       title: "Action",
       render:(record)=> (<><button type="button" onClick={()=> DeleteRecord(record)}>Delete</button>
-        <Link to={`/UpsertCategory?id=${record.id}`}>Edit</Link></>)
+        <Link to={`/UpsertRiskOfProgression?id=${record.id}`}>Edit</Link></>)
     },
   ];
 
    const  DeleteRecord=(record)=>{
       if(window.confirm(`Are you sure want to delete ${record.name} ?`)){
-        axios.get(apibaseUrl+deleteCategoryApi+ record.id).then(resp=>{
+        axios.get(apibaseUrl+deleteRiskOfProgressionApi+ record.id).then(resp=>{
           alert(resp.data.message);
-          GetCategoryList();
+          GetRiskOfProgressionList();
         })
       }
    }
   useEffect(()=>{
-        GetCategoryList();
+        GetRiskOfProgressionList();
   },[])
 
-  const GetCategoryList = () => {
-    axios.get(apibaseUrl + getCategoryListApi).then((resp) => {
-        setCategoryList(resp.data.response);
+  const GetRiskOfProgressionList = () => {
+    axios.get(apibaseUrl + getRiskOfProgressionListApi).then((resp) => {
+        setRiskOfProgressionList(resp.data.response);
     });
   };
 
@@ -97,7 +97,7 @@ export default function Category() {
           </div>
           <div className="col-md-6">
           <div className="col-md-3">
-              <Link to='/UpsertCategory' className="btn btn-success">Add </Link>
+              <Link to='/UpsertRiskOfProgression' className="btn btn-success">Add </Link>
             </div>
           </div>
         </div>
@@ -105,7 +105,7 @@ export default function Category() {
           <div className="col-md-12">
             <Table
               columns={Columns}
-              dataSource={categoryList}
+              dataSource={riskOfProgressionList}
             ></Table>
           </div>
         </div>
