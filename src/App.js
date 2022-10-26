@@ -23,6 +23,7 @@ import Category from "./Components/Master/Category";
 import UpsertCategory from "./Components/Master/UpsertCategory";
 import Utilities from "./Components/Master/Utilities";
 import Country from "./Components/Master/Country";
+import WeekProgramQuestion from "./Components/WeekProgramQuestion";
 
 
 function App() {
@@ -68,6 +69,8 @@ function App() {
                 <Route path='Category' element={<Category/>}></Route>
                 <Route path='Country' element={<Country/>}></Route>
               </Route>
+              <Route exact path="/IntakeProcess" element={<WeekProgramQuestion/>}></Route>
+
             </Routes>
           </Router>
         </main>

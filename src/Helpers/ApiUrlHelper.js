@@ -21,3 +21,4 @@ export const GetCategoryByIdApi='api/CategoryMaster/GetCategoryById?id=';
 export const UpdateCategoryApi='api/CategoryMaster/UpdateCategory';
 export const GetMasterMenuLinkApi='api/MenuSubMenu/GetMasterMenuLink';
 export const GetCountryListApi='api/CountryMaster/GetCountryList';
+export const GetQuestionOptionDetailsApi='api/WeekProgram/GetWeekProgramQuestionDetails?userId='
