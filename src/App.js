@@ -26,6 +26,7 @@ import Program from "./Components/Master/Program";
 import ProgramType from "./Components/Master/ProgramType";
 import RiskOfProgression from "./Components/Master/RiskOfProgression";
 import UpsertCategory from "./Components/Master/UpsertCategory";
+import UpsertCountry from "./Components/Master/UpsertCountry";
 import UpsertGender from "./Components/Master/UpsertGender";
 import UpsertInquire from "./Components/Master/UpsertInquire";
 import UpsertProgram from "./Components/Master/UpsertProgram";
@@ -83,17 +84,19 @@ function App() {
               <Route exact path="/CreateCoach" element={<CoachInsert />}></Route>
               <Route exact path="/AddResource" element={<AddRescource />}></Route>
               <Route exact path="/Category" element={<Category />}></Route>
+              <Route exact path="/UpsertCategory" element={<UpsertCategory />}></Route>
               <Route exact path="/Gender" element={<Gender />}></Route>
-              <Route exact path="/Inquire" element={<Inquire />}></Route>
-              <Route exact path="/Program" element={<Program />}></Route>
-              <Route exact path="/ProgramType" element={<ProgramType />}></Route>
-              <Route exact path="/RiskOfProgression" element={<RiskOfProgression />}></Route>
-              <Route exact path="/UpsertCategpry" element={<UpsertCategory />}></Route>
               <Route exact path="/UpsertGender" element={<UpsertGender />}></Route>
+              <Route exact path="/Inquire" element={<Inquire />}></Route>
               <Route exact path="/UpsertInquire" element={<UpsertInquire />}></Route>
+              <Route exact path="/Program" element={<Program />}></Route>
               <Route exact path="/UpsertProgram" element={<UpsertProgram />}></Route>
+              <Route exact path="/ProgramType" element={<ProgramType />}></Route>
               <Route exact path="/UpsertProgramType" element={<UpsertProgramType />}></Route>
+              <Route exact path="/RiskOfProgression" element={<RiskOfProgression />}></Route>
               <Route exact path="/UpsertRiskOfProgression" element={<UpsertRiskOfProgression />}></Route>
+              <Route exact path="/Country" element={<Country />}></Route>
+              <Route exact path="/UpsertCountry" element={<UpsertCountry />}></Route>
               <Route exact path="/Role" element={<Role />}></Route>
               <Route exact path="/UpsertRole" element={<UpsertRole />}></Route>
               <Route exact path="/Subscription" element={<Subscription />}></Route>
@@ -105,18 +108,18 @@ function App() {
               <Route exact path="/UserType" element={<UserType />}></Route>
               <Route exact path="/UpsertUserType" element={<UpsertUserType />}></Route>
               <Route exact path="/Master" element={<Utilities />}>
-                <Route path='Category' element={<Category />}></Route>
-                <Route path='Gender' element={<Gender />}></Route>
-                <Route path='Inquire' element={<Inquire />}></Route>
-                <Route path='Program' element={<Program />}></Route>
-                <Route path='ProgramType' element={<ProgramType />}></Route>
-                <Route path='RiskOfProgression' element={<RiskOfProgression />}></Route>
-                <Route path='Role' element={<Role />}></Route>
-                <Route path='Subscription' element={<Subscription />}></Route>
-                <Route path='Topic' element={<Topic />}></Route>
-                <Route path='UserStatus' element={<UserStatus />}></Route>
-                <Route path='UserType' element={<UserType />}></Route>
-                <Route path='Country' element={<Country />}></Route>
+              <Route path='Category' element={<Category />}></Route>
+              <Route path='Gender' element={<Gender />}></Route>
+              <Route path='Inquire' element={<Inquire />}></Route>
+              <Route path='Program' element={<Program />}></Route>
+              <Route path='ProgramType' element={<ProgramType />}></Route>
+              <Route path='RiskOfProgression' element={<RiskOfProgression />}></Route>
+              <Route path='Role' element={<Role />}></Route>
+              <Route path='Subscription' element={<Subscription />}></Route>
+              <Route path='Topic' element={<Topic />}></Route>
+              <Route path='UserStatus' element={<UserStatus />}></Route>
+              <Route path='UserType' element={<UserType />}></Route>
+              <Route path='Country' element={<Country />}></Route>
               </Route>
             </Routes>
           </Router>
