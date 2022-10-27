@@ -1,7 +1,7 @@
 import logo from "./logo.svg";
 import "./App.css";
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import { useState } from 'react'
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { useState } from "react";
 import Header from "./Components/SuperAdmin/Header";
 import Navbar from "./Components/SuperAdmin/Navbar";
 import Dashboard from "./Components/Dashboard";
@@ -44,19 +44,19 @@ import UpsertUserType from "./Components/Master/UpsertUserType";
 import Utilities from "./Components/Master/Utilities";
 import Country from "./Components/Master/Country";
 import WeekProgramQuestion from "./Components/WeekProgramQuestion";
-
+import ChangePassword from "./Components/SuperAdmin/ChangePassword";
 
 function App() {
-
-  const [isToggle, setIsToggle] = useState('page-wrapper doctris-theme toggled')
+  const [isToggle, setIsToggle] = useState(
+    "page-wrapper doctris-theme toggled"
+  );
   const OnToggle = () => {
-    if (isToggle == 'page-wrapper doctris-theme') {
-      setIsToggle('page-wrapper doctris-theme toggled')
+    if (isToggle == "page-wrapper doctris-theme") {
+      setIsToggle("page-wrapper doctris-theme toggled");
     } else {
-      setIsToggle('page-wrapper doctris-theme')
+      setIsToggle("page-wrapper doctris-theme");
     }
-  }
-
+  };
 
   return (
     <div className="App">
@@ -71,55 +71,148 @@ function App() {
               <Route exact path="/" element={<Dashboard />}></Route>
               <Route exact path="/ContactUs" element={<ContactUs />}></Route>
               <Route exact path="/Referral" element={<Referral />}></Route>
-              <Route exact path="/UserListing" element={<UserListing />}></Route>
+              <Route
+                exact
+                path="/UserListing"
+                element={<UserListing />}
+              ></Route>
               <Route exact path="/Users" element={<Users />}></Route>
-              <Route exact path="/NotIntrested" element={<NotInterested />}></Route>
+              <Route
+                exact
+                path="/NotIntrested"
+                element={<NotInterested />}
+              ></Route>
               <Route exact path="/Groups" element={<Group />}></Route>
               <Route exact path="/RedFlaged" element={<RedFlaged />}></Route>
-              <Route exact path="/SelfManaged" element={<SelfManaged />}></Route>
-              <Route exact path="/CaochAssign" element={<CoachAssigned />}></Route>
-              <Route exact path="/CoachListing" element={<CoachListing />}></Route>
+              <Route
+                exact
+                path="/SelfManaged"
+                element={<SelfManaged />}
+              ></Route>
+              <Route
+                exact
+                path="/CaochAssign"
+                element={<CoachAssigned />}
+              ></Route>
+              <Route
+                exact
+                path="/CoachListing"
+                element={<CoachListing />}
+              ></Route>
               <Route exact path="/Resource" element={<Resource />}></Route>
               <Route exact path="/AddGroup" element={<AddGroup />}></Route>
-              <Route exact path="/CreateCoach" element={<CoachInsert />}></Route>
-              <Route exact path="/AddResource" element={<AddRescource />}></Route>
+              <Route
+                exact
+                path="/CreateCoach"
+                element={<CoachInsert />}
+              ></Route>
+              <Route
+                exact
+                path="/AddResource"
+                element={<AddRescource />}
+              ></Route>
               <Route exact path="/Category" element={<Category />}></Route>
               <Route exact path="/Gender" element={<Gender />}></Route>
               <Route exact path="/Inquire" element={<Inquire />}></Route>
               <Route exact path="/Program" element={<Program />}></Route>
-              <Route exact path="/ProgramType" element={<ProgramType />}></Route>
-              <Route exact path="/RiskOfProgression" element={<RiskOfProgression />}></Route>
-              <Route exact path="/UpsertCategpry" element={<UpsertCategory />}></Route>
-              <Route exact path="/UpsertGender" element={<UpsertGender />}></Route>
-              <Route exact path="/UpsertInquire" element={<UpsertInquire />}></Route>
-              <Route exact path="/UpsertProgram" element={<UpsertProgram />}></Route>
-              <Route exact path="/UpsertProgramType" element={<UpsertProgramType />}></Route>
-              <Route exact path="/UpsertRiskOfProgression" element={<UpsertRiskOfProgression />}></Route>
+              <Route
+                exact
+                path="/ProgramType"
+                element={<ProgramType />}
+              ></Route>
+              <Route
+                exact
+                path="/RiskOfProgression"
+                element={<RiskOfProgression />}
+              ></Route>
+              <Route
+                exact
+                path="/UpsertCategpry"
+                element={<UpsertCategory />}
+              ></Route>
+              <Route
+                exact
+                path="/UpsertGender"
+                element={<UpsertGender />}
+              ></Route>
+              <Route
+                exact
+                path="/UpsertInquire"
+                element={<UpsertInquire />}
+              ></Route>
+              <Route
+                exact
+                path="/UpsertProgram"
+                element={<UpsertProgram />}
+              ></Route>
+              <Route
+                exact
+                path="/UpsertProgramType"
+                element={<UpsertProgramType />}
+              ></Route>
+              <Route
+                exact
+                path="/UpsertRiskOfProgression"
+                element={<UpsertRiskOfProgression />}
+              ></Route>
               <Route exact path="/Role" element={<Role />}></Route>
               <Route exact path="/UpsertRole" element={<UpsertRole />}></Route>
-              <Route exact path="/Subscription" element={<Subscription />}></Route>
-              <Route exact path="/UpsertSubscription" element={<UpsertSubscription />}></Route>
+              <Route
+                exact
+                path="/Subscription"
+                element={<Subscription />}
+              ></Route>
+              <Route
+                exact
+                path="/UpsertSubscription"
+                element={<UpsertSubscription />}
+              ></Route>
               <Route exact path="/Topic" element={<Topic />}></Route>
-              <Route exact path="/UpsertTopic" element={<UpsertTopic />}></Route>
+              <Route
+                exact
+                path="/UpsertTopic"
+                element={<UpsertTopic />}
+              ></Route>
               <Route exact path="/UserStatus" element={<UserStatus />}></Route>
-              <Route exact path="/UpsertUserStatus" element={<UpsertUserStatus />}></Route>
+              <Route
+                exact
+                path="/UpsertUserStatus"
+                element={<UpsertUserStatus />}
+              ></Route>
               <Route exact path="/UserType" element={<UserType />}></Route>
-              <Route exact path="/UpsertUserType" element={<UpsertUserType />}></Route>
+              <Route
+                exact
+                path="/UpsertUserType"
+                element={<UpsertUserType />}
+              ></Route>
               <Route exact path="/Master" element={<Utilities />}>
-                <Route path='Category' element={<Category />}></Route>
-                <Route path='Gender' element={<Gender />}></Route>
-                <Route path='Inquire' element={<Inquire />}></Route>
-                <Route path='Program' element={<Program />}></Route>
-                <Route path='ProgramType' element={<ProgramType />}></Route>
-                <Route path='RiskOfProgression' element={<RiskOfProgression />}></Route>
-                <Route path='Role' element={<Role />}></Route>
-                <Route path='Subscription' element={<Subscription />}></Route>
-                <Route path='Topic' element={<Topic />}></Route>
-                <Route path='UserStatus' element={<UserStatus />}></Route>
-                <Route path='UserType' element={<UserType />}></Route>
-                <Route path='Country' element={<Country />}></Route>
+                <Route path="Category" element={<Category />}></Route>
+                <Route path="Gender" element={<Gender />}></Route>
+                <Route path="Inquire" element={<Inquire />}></Route>
+                <Route path="Program" element={<Program />}></Route>
+                <Route path="ProgramType" element={<ProgramType />}></Route>
+                <Route
+                  path="RiskOfProgression"
+                  element={<RiskOfProgression />}
+                ></Route>
+                <Route path="Role" element={<Role />}></Route>
+                <Route path="Subscription" element={<Subscription />}></Route>
+                <Route path="Topic" element={<Topic />}></Route>
+                <Route path="UserStatus" element={<UserStatus />}></Route>
+                <Route path="UserType" element={<UserType />}></Route>
+                <Route path="Country" element={<Country />}></Route>
               </Route>
-              <Route exact path="/IntakeProcess" element={<WeekProgramQuestion/>}></Route>
+              <Route
+                exact
+                path="/IntakeProcess"
+                element={<WeekProgramQuestion />}
+              ></Route>
+              <Route
+                exact
+                path="/ChangePassword"
+                element={<ChangePassword />}
+              ></Route>
+
 
             </Routes>
           </Router>

@@ -4,6 +4,7 @@ import { Table } from "antd";
 import "antd/dist/antd.css";
 import {
   apibaseUrl,
+  ChangeUserInterestApi,
   getUserListDetailsApi,
   getUserListingdetailsApi,
 } from "../../Helpers/ApiUrlHelper";
@@ -141,19 +142,39 @@ export default function Users() {
 
     {
       title: "Intrested",
-      dataIndex: "isIntrested",
+     
       sorter: (record1, record2) => {
         return record1.isIntrested > record2.isIntrested;
       },
       render: (record) => {
+        debugger
         return (
           <>
-           <input type='checkbox' checked='checked'/>
+          {
+            record.isIntrested===true ? 
+            ( <input type='checkbox' onChange={()=>ChangeInterest(record)} checked='checked'/>)
+            :( <input type='checkbox' />)
+          }
+          
           </>
         );
       },
     },
   ];
+
+  const ChangeInterest=(record)=>{
+    debugger
+    let userInterest={
+      userId: record.id,
+      status:false
+    };
+    if(window.confirm("Are you sure want to change status ?")){
+      axios.post(apibaseUrl+ChangeUserInterestApi, userInterest).then(resp=>{
+        window.alert(resp.data.message);
+        GetUserDetails();
+      })
+    }
+  }
 
   return (
     <div

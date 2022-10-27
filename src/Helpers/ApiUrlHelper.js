@@ -72,3 +72,6 @@ export const UpdateUserTypeApi='api/UserTypeMaster/UpdateUserType';
 export const GetMasterMenuLinkApi='api/MenuSubMenu/GetMasterMenuLink';
 export const GetCountryListApi='api/CountryMaster/GetCountryList';
 export const GetQuestionOptionDetailsApi='api/WeekProgram/GetWeekProgramQuestionDetails?userId='
+export const UpdatePasswordApi='api/Authenticate/UpdatePassword';
+export const ChangeUserInterestApi='api/User/ChangeUserInterest';
+export const GetGroupDetailsApi='api/Group/GetGroupDetails';
