@@ -20,6 +20,8 @@ export default function Navbar() {
             <li><Link to="/CaochAssign"><i className="uil-user me-2 d-inline-block" />Caoch Assigned</Link></li>
             <li><Link to="/CoachListing"><i className="uil-user me-2 d-inline-block" />Caoch Listing</Link></li>
             <li><Link to="/Resource"><i className="uil-user me-2 d-inline-block" />Resource</Link></li>
+            <li><Link to="/ChangePassword"><i className="uil-user me-2 d-inline-block" />Change Password</Link></li>
+            <li><Link to="/EditProfile"><i className="uil-user me-2 d-inline-block" />Edit Profile</Link></li>
  
            
         </ul>

@@ -2,10 +2,15 @@ import React,{useEffect, useState} from 'react';
 import axios from 'axios';
 import { apibaseUrl, deleteResourceApi, resourceListApi } from '../../Helpers/ApiUrlHelper';
 import { Link } from 'react-router-dom';
+import { Table } from "antd";
+import "antd/dist/antd.css";
+
 
 export default function Resource() {
 
   const [resourceList,setResourceList ]= useState([]);
+
+  
 
   useEffect(()=>{
     GetResourceList();

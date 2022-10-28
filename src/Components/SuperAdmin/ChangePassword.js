@@ -27,7 +27,10 @@ export default function ChangePassword() {
     debugger
     values.userId=1;
     values.userTypeId=1;
-    axios.post(apibaseUrl+UpdatePasswordApi,values).then(resp=>{
+    let config={
+      headers: { Authorization: `Bearer ${window.sessionStorage.getItem('token')}` }
+    }
+    axios.post(apibaseUrl+UpdatePasswordApi,values,config).then(resp=>{
       window.alert(resp.data.message);
     })
     resetForm({values:''});

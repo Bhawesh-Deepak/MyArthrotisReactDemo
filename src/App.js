@@ -45,11 +45,16 @@ import Utilities from "./Components/Master/Utilities";
 import Country from "./Components/Master/Country";
 import WeekProgramQuestion from "./Components/WeekProgramQuestion";
 import ChangePassword from "./Components/SuperAdmin/ChangePassword";
+import EditProfile from "./Components/SuperAdmin/EditProfile";
+import UserLogin from "./Components/Login/UserLogin";
 
 function App() {
   const [isToggle, setIsToggle] = useState(
     "page-wrapper doctris-theme toggled"
   );
+
+  const [isLoggedIn, setIsLoggedIn]= useState(window.sessionStorage.getItem('token')===null ? false: true);
+
   const OnToggle = () => {
     if (isToggle == "page-wrapper doctris-theme") {
       setIsToggle("page-wrapper doctris-theme toggled");
@@ -59,7 +64,8 @@ function App() {
   };
 
   return (
-    <div className="App">
+    
+      isLoggedIn===true? (   <div className="App">
       <div className={isToggle}>
         <main className="page-content bg-light">
           <Router>
@@ -212,13 +218,24 @@ function App() {
                 path="/ChangePassword"
                 element={<ChangePassword />}
               ></Route>
+              <Route
+                exact
+                path="/EditProfile"
+                element={<EditProfile />}
+              ></Route>
 
-
+              <Route
+                exact
+                path="/Login"
+                element={<UserLogin />}
+              ></Route>
             </Routes>
           </Router>
         </main>
       </div>
-    </div>
+    </div>):(<UserLogin/>)
+    
+ 
   );
 }
 

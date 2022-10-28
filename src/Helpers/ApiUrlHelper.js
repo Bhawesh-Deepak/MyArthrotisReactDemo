@@ -80,3 +80,5 @@ export const GetQuestionOptionDetailsApi='api/WeekProgram/GetWeekProgramQuestion
 export const UpdatePasswordApi='api/Authenticate/UpdatePassword';
 export const ChangeUserInterestApi='api/User/ChangeUserInterest';
 export const GetGroupDetailsApi='api/Group/GetGroupDetails';
+export const UpdateUserProfile='api/User/UpdateUserProfile';
+export const AuthenticateApi='api/Authenticate/Authenticate';

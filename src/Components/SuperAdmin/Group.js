@@ -4,8 +4,8 @@ import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import { apibaseUrl, GetGroupDetailsApi } from "../../Helpers/ApiUrlHelper";
-import { Table } from "antd";
+import { apibaseUrl, GetGroupDetailsApi, getProgramTypeListApi } from "../../Helpers/ApiUrlHelper";
+import { Select, Table } from "antd";
 import "antd/dist/antd.css";
 
 export default function Group() {
@@ -18,6 +18,13 @@ export default function Group() {
   const [programType, setProgramType]= useState(null);
   const [coach, setCoach]= useState(null);
   const [isReload, setIsReload]= useState(1);
+  const [programTypeList, setProgramTypeList]= useState([]);
+
+  const GetProgramTypeList=()=>{
+    axios.get(apibaseUrl + getProgramTypeListApi).then((resp) => {
+      setProgramTypeList(resp.data.response);
+  });
+  }
 
   const GetGroupDetails = () => {
     axios
@@ -29,7 +36,7 @@ export default function Group() {
         sortOrder: 1,
         groupName: groupSearchParam,
         coachName: coach,
-        programTypeId: null,
+        programTypeId: programType,
       })
       .then((resp) => {
         setGroupDetails(resp.data.response);
@@ -38,12 +45,20 @@ export default function Group() {
 
   useEffect(() => {
     GetGroupDetails();
+    GetProgramTypeList();
   }, [isReload]);
 
   const SearchGroupDetail=()=>{
     let groupSearch= groupSearchParam;
     setIsReload((prev)=>prev+1);
     debugger
+  }
+
+  const ClearSearch=()=>{
+    setProgramType('');
+    setCoach(null);
+    setGroupSearchParam(null);
+    setIsReload((prev)=>prev+1);
   }
 
   const COLUMNS = [
@@ -120,7 +135,12 @@ export default function Group() {
             </div>
             <div className="col-md-3 form-group">
               <label>Program Type</label>
-              <input className="form-control" onChange={(e)=>setProgramType(e.target.value)} ></input>
+              <select className="form-control" onChange={(e)=>setProgramType(e.target.value)} >
+                <option value={null}>-Select--</option>
+                {
+                  programTypeList.map((data, index)=>(<option value={data.id}>{data.name}</option>))
+                }
+              </select>
             </div>
             <div className="col-md-3 form-group">
               <label>Coach Name</label>
@@ -129,6 +149,7 @@ export default function Group() {
 
             <div className="col-md-3 form-group">
              <button type="button" onClick={()=>SearchGroupDetail()} className="btn btn-success">Search</button>
+           
             </div>
           </div>
           <div className="col-md-4">
