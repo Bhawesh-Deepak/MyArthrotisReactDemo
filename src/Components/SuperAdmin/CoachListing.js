@@ -2,18 +2,66 @@ import React,{useState, useEffect} from 'react';
 import axios  from 'axios';
 import { apibaseUrl, CoachListApi } from '../../Helpers/ApiUrlHelper';
 import { Link } from 'react-router-dom';
+import {Table} from 'antd';
+import 'antd/dist/antd.css';
 
 export default function CoachListing() {
 
   const [coachList, setCoachList]= useState([]);
+  const [pageSizeValue, setPageSizeValue]= useState(10);
+  const [loading, setLoading]= useState(false);
+  const [pageValue, setPageValue]= useState(1);
+  const [totalCount, setTotalCount]= useState(10);
+
+  const Paging=(page, pagesize)=>{
+    setPageSizeValue(pagesize);
+    setPageValue(page);
+  }
+
+  const columns=[
+    {
+      title:'Id',
+      dataIndex:'id',
+      sorter:(record1, record2)=>{
+        return record1.id>record2.id
+      }
+    },
+    {
+      title:'Name',
+      dataIndex:'userName',
+      sorter:(record1, record2)=>{
+        return record1.userName>record2.userName
+      }
+    },
+    {
+      title:'Email',
+      dataIndex:'email',
+      sorter:(record1, record2)=>{
+        return record1.email>record2.email
+      }
+    },
+    {
+      title:'Role',
+      dataIndex:'role',
+      sorter:(record1, record2)=>{
+        return record1.role>record2.role
+      }
+    },
+    {
+      title:'Account Status',
+      dataIndex:'status',
+      sorter:(record1, record2)=>{
+        return record1.status>record2.status
+      }
+    },
+  ];
 
   useEffect(()=>{
     GetCoachList();
-  },[])
+  },[pageValue])
 
   const GetCoachList = () => {
-    axios
-      .post(apibaseUrl + CoachListApi, {
+    axios.post(apibaseUrl + CoachListApi, {
         pageSize: 10000,
         pageIndex: 1,
         totalRecords: 0,
@@ -22,6 +70,7 @@ export default function CoachListing() {
       })
       .then((resp) => {
         setCoachList(resp.data.response);
+        setTotalCount(resp.data.response[0].totalCount);
       });
   };
 
@@ -39,7 +88,7 @@ export default function CoachListing() {
         <Link to="/CreateCoach" className='btn btn-success'>Create Coach</Link>
         </div>
         <div className='col-md-12'>
-        <table className="table table-bordered">
+        {/* <table className="table table-bordered">
               <thead>
                 <tr>
                   <th>Id</th>
@@ -60,7 +109,17 @@ export default function CoachListing() {
                   </tr>
                 ))}
               </tbody>
-            </table>
+            </table> */}
+            <Table 
+            columns={columns} 
+            dataSource={coachList}
+            pagination={{
+              pageSize:pageSizeValue,
+              total:totalCount,
+              onChange:(page, pageSize)=>{Paging(page,pageSize)}
+              
+            }}
+            ></Table>
         </div>
 
       </div>
