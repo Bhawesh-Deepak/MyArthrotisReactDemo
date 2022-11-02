@@ -13,6 +13,8 @@ export const upsertResourceApi='api/Document/UpsertDocument';
 export const getResourceById='api/Document/GetDocumentById?id=';
 export const getUserListDetailsApi='api/User/GetUserList';
 export const downloadUserListExcel='api/User/DownloadUserExcel';
+export const downloadContactUsListExcel='api/ContactUs/DownloadContactUsReport';
+export const downloadReferralExcel='api/User/DownloadReferralExcel';
 export const getCategoryListApi='api/CategoryMaster/GetCategoryList';
 export const getCountryListApi='api/CountryMaster/GetCountryList';
 export const getGenderListApi='api/GenderMaster/GetGenderList';
