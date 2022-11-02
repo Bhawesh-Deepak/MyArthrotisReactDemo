@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { apibaseUrl, apiContactUsList } from "../../Helpers/ApiUrlHelper";
+import { apibaseUrl, apiContactUsList,downloadContactUsListExcel} from "../../Helpers/ApiUrlHelper";
 import {Table} from 'antd';
 import 'antd/dist/antd.css';
 
@@ -95,6 +95,21 @@ export default function ContactUs() {
     GetContactList();
   };
 
+  const DownloadExcelFile = () => {
+    axios({
+      url: apibaseUrl + downloadContactUsListExcel,
+      method: "GET",
+      responseType: "blob",
+    }).then((response) => {
+      const url = window.URL.createObjectURL(new Blob([response.data]));
+      const link = document.createElement("a");
+      link.href = url;
+      link.setAttribute("download", "ContactUsReport.xls");
+      document.body.appendChild(link);
+      link.click();
+    });
+  };
+
   return (
     <div
       className="container-fluid shadow-lg p-3 mb-5 bg-white rounded"
@@ -130,7 +145,8 @@ export default function ContactUs() {
                 Search
               </button>{" "}
               &nbsp;&nbsp;
-              <button className="btn btn-success" style={{ marginTop: "20px" }}>
+              <button onClick={() => DownloadExcelFile()} 
+              className="btn btn-success" style={{ marginTop: "20px" }}>
                 Downlaod
               </button>
             </div>
