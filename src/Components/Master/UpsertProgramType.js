@@ -68,7 +68,7 @@ export default function UpsertProgramType() {
       <div className="row" style={{ marginBottom: "30px" }}>
         <div className="row" style={{ marginBottom: "10px" }}>
           <div className="col-md-12">
-            <h5 style={{ "text-align": "center" }}>Add Category</h5>
+            <h5 style={{ "text-align": "center" }}>Add Program Type</h5>
           </div>
 
           <div className="col-md-12">

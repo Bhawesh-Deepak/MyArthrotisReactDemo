@@ -44,7 +44,7 @@ export const InsertProgramApi='api/ProgramMaster/InsertProgram';
 export const GetProgramByIdApi='api/ProgramMaster/GetProgramById?id=';
 export const UpdateProgramApi='api/ProgramMaster/UpdateProgram';
 export const deleteProgramTypeApi='api/ProgramTypeMaster/DeleteProgram?id=';
-export const InsertProgramTypeApi='api/ProgramTypeMaster/InsertProgram';
+export const InsertProgramTypeApi='api/ProgramTypeMaster/InsertProgramType';
 export const GetProgramTypeByIdApi='api/ProgramTypeMaster/GetProgramTypeById?id=';
 export const UpdateProgramTypeApi='api/ProgramTypeMaster/UpdateProgramType';
 export const deleteRiskOfProgressionApi='api/RiskOfProgressionMaster/DeleteRiskOfProgression?id=';
