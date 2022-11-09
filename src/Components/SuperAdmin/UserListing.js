@@ -138,7 +138,7 @@ export default function UserListing() {
         <div className="row" style={{ marginBottom: "10px" }}>
           <div className="col-md-12" style={{ marginTop: "10px" }}>
             <div className="col-md-3 form-group">
-              <label>First,Last Name</label>
+              <label>Name</label>
               <input
                 type="text"
                 onClick={(e) => setName(e.target.value)}
@@ -147,34 +147,34 @@ export default function UserListing() {
               ></input>
             </div>
             <div className="col-md-3 form-group">
-              <label>First,Last Name</label>
+              <label>Email :</label>
               <input
-                type="text"
+                type="text" name="email"
                 onClick={(e) => setName(e.target.value)}
                 className="form-control"
-                placeholder="search ..."
+                placeholder="email..."
               ></input>
             </div>
             <div className="col-md-3 form-group">
-              <label>First,Last Name</label>
+              <label>Start Date </label>
               <input
-                type="text"
-                onClick={(e) => setName(e.target.value)}
+                type="Date"
+                // onClick={(e) => setName(e.target.value)}
                 className="form-control"
-                placeholder="search ..."
+                // placeholder="search ..."
               ></input>
             </div>
             <div className="col-md-3 form-group">
-              <label>First,Last Name</label>
+              <label>End Date</label>
               <input
-                type="text"
-                onClick={(e) => setName(e.target.value)}
+                type="Date"
+                // onClick={(e) => setName(e.target.value)}
                 className="form-control"
-                placeholder="search ..."
+                // placeholder="search ..."
               ></input>
             </div>
             <div className="col-md-3 form-group">
-              <label>First,Last Name</label>
+              <label>Subscriptions</label>
               <input
                 type="text"
                 onClick={(e) => setName(e.target.value)}
