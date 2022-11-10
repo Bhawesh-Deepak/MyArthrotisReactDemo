@@ -68,6 +68,13 @@ export default function ContactUs() {
         return record1.zipCode > record2.zipCode;
       },
     },
+    {
+      title: "CreatedOn",
+      dataIndex: "createdOn",
+      sorter: (record1, record2) => {
+        return record1.createdOn > record2.createdOn;
+      },
+    },
   ];
 
   useEffect(() => {
