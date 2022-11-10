@@ -10,35 +10,16 @@ import {
 } from "../../Helpers/ApiUrlHelper";
 
 export default function Users() {
+  const [pageValue, setPageValue] = useState(1);
+  const [pageSizeValue, setPageSizeValue] = useState(10);
+  const [totalCount, setTotalCount] = useState(0);
   const [userDetails, setUserDetails] = useState([]);
+  const [name, setName] = useState("");
 
-  useEffect(() => {
-    GetUserDetails();
-  }, []);
-
-  const AssignGroup = (record) => {
-    debugger;
-  };
-
-  const GetUserDetails = () => {
-    axios
-      .post(apibaseUrl + getUserListingdetailsApi, {
-        isInterested: true,
-        firstName: "",
-        lastName: "",
-        email: "",
-        statusId: 0,
-        programId: 0,
-        caseNumber: "",
-        pageNumber: 1,
-        pageSize: 10,
-        sortColumn: "",
-        sortOrder: "",
-      })
-      .then((resp) => {
-        setUserDetails(resp.data.response);
-      });
-  };
+  const Paging = (page, pagesize) => {
+    setPageSizeValue(pagesize);
+    setPageValue(page);
+  }
 
   const Column = [
     {
@@ -155,12 +136,45 @@ export default function Users() {
             ( <input type='checkbox' onChange={()=>ChangeInterest(record)} checked='checked'/>)
             :( <input type='checkbox' />)
           }
-          
+
           </>
         );
       },
     },
   ];
+
+  useEffect(() => {
+    GetUserDetails();
+  }, [pageValue]);
+
+  const GetUserDetails = () => {
+    axios
+      .post(apibaseUrl + getUserListingdetailsApi, {
+        isInterested: true,
+        firstName: "",
+        lastName: "",
+        email: "",
+        statusId: 0,
+        programId: 0,
+        caseNumber: "",
+        pageNumber: 1,
+        pageSize: 10,
+        sortColumn: "",
+        sortOrder: "",
+      })
+      .then((resp) => {
+        setUserDetails(resp.data.response);
+        setTotalCount(resp.data.response[0].totalCount);
+      });
+  };
+
+  const AssignGroup = (record) => {
+    debugger;
+  };
+
+  const SearchWithParams = () => {
+    GetUserDetails(name);
+  };
 
   const ChangeInterest=(record)=>{
     debugger
@@ -183,18 +197,88 @@ export default function Users() {
     >
       <div className="row" style={{ marginBottom: "30px" }}>
         <div className="row" style={{ marginBottom: "10px" }}>
-          <div className="col-md-9">
+          <div className="col-md-12" style={{ marginTop: "10px" }}>
+            <div className="col-md-3 form-group">
+              <label>Name</label>
+              <input
+                type="text"
+                onClick={(e) => setName(e.target.value)}
+                className="form-control"
+                placeholder="search ..."
+              ></input>
+            </div>
+            <div className="col-md-3 form-group">
+              <label>Email :</label>
+              <input
+                type="text" name="email"
+                onClick={(e) => setName(e.target.value)}
+                className="form-control"
+                placeholder="email..."
+              ></input>
+            </div>
+            <div className="col-md-3 form-group">
+              <label>Status</label>
+              <input
+                type="text"
+                onClick={(e) => setName(e.target.value)}
+                className="form-control"
+                placeholder="search ..."
+              ></input>
+            </div>
+            
+            
+            <div className="col-md-3 form-group">
+              <label>Program</label>
+              <input
+                type="text"
+                onClick={(e) => setName(e.target.value)}
+                className="form-control"
+                placeholder="search ..."
+              ></input>
+            </div>
 
-          </div>
-          <div className="col-md-3">
+            <div className="col-md-3 form-group">
+            <label>Case Number</label>
+              <input
+                type="text"
+                onClick={(e) => setName(e.target.value)}
+                className="form-control"
+                placeholder="case number ..."
+              ></input>
+              </div>
+
+            <div className="col-md-3 form-group">
+              <button
+                onClick={() => SearchWithParams()}
+                className="btn btn-success"
+              >
+                Search
+              </button>
+            </div>
+            <div className="col-md-3 form-group">
+              <button className="btn btn-success"
+              >
+                Display All
+              </button>
+            </div>
+
+            <div className="col-md-3">
             <button className="btn btn-success">Add User</button>
           </div>
           <div className="col-md-12">
-          <Table columns={Column} dataSource={userDetails}></Table>
+          <Table columns={Column} dataSource={userDetails}
+          pagination={{
+            pageSize: pageSizeValue,
+            total: totalCount,
+            onChange: (page, pageSize) => {
+              Paging(page, pageSize);
+            },
+          }}></Table>
           </div>
-          
+
+          </div>
+          </div>
         </div>
       </div>
-    </div>
   );
 }
