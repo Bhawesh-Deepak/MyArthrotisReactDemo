@@ -113,6 +113,14 @@ export default function Users() {
     },
 
     {
+      title: "Review",
+      dataIndex: "reviewName",
+      sorter: (record1, record2) => {
+        return record1.reviewName > record2.reviewName;
+      },
+    },
+
+    {
       title: "Completion",
       dataIndex: "completionPercentage",
       sorter: (record1, record2) => {

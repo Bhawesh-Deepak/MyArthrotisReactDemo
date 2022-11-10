@@ -148,6 +148,13 @@ export default function NotInterested() {
       },
       render: (completionPercentage) => completionPercentage + "%",
     },
+    {
+      title: "Review",
+      dataIndex: "review",
+      sorter: (record1, record2) => {
+        return record1.review > record2.review;
+      },
+    },
 
     {
       title: "Intrested",

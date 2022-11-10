@@ -119,6 +119,20 @@ export default function Group() {
         return record1.coachName > record2.coachName;
       },
     },
+    {
+      title: "Edit",
+      dataIndex: "userEdit",
+      sorter: (record1, record2) => {
+        return record1.userEdit > record2.userEdit;
+      },
+    },
+    {
+      title: "Deactivate",
+      dataIndex: "userDeactivate",
+      sorter: (record1, record2) => {
+        return record1.userDeactivate > record2.userDeactivate;
+      },
+    },
   ];
 
   return (
