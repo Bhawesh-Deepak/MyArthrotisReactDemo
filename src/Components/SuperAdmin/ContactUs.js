@@ -16,7 +16,7 @@ export default function ContactUs() {
   const Paging = (page, pagesize) => {
     setPageSizeValue(pagesize);
     setPageValue(page);
-  };
+  }
 
   const columns = [
     {
@@ -95,8 +95,8 @@ export default function ContactUs() {
       .then((resp) => {
         setTotalCount(resp.data.response[0].totalCount);
         setContactList(resp.data.response);
-      });
-  };
+      })
+  }
 
   const SearchConatctUs = () => {
     GetContactList();

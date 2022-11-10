@@ -190,6 +190,12 @@ export default function UserListing() {
                 Search
               </button>
             </div>
+            <div className="col-md-3 form-group">
+              <button className="btn btn-success"
+              >
+                Display All
+              </button>
+            </div>
 
             <div className="col-md-3 form-group">
               <button
